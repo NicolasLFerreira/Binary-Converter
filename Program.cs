@@ -8,15 +8,40 @@ namespace Binary_converter
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter '0' for 'Binary -> Decimal'\n" +
-                              "Enter '1' for 'Decimal -> Binary'");
-            char choice = Console.ReadKey().
+            Console.Write("1 for Binary -> Decimal\n" +
+                          "2 for Decimal -> Binary\n");
+
+            char choice = Console.ReadKey().KeyChar;
+            
+            while (choice == '1')
+            {
+                Console.Write("\nEnter a binary number: ");
+                string binary = Console.ReadLine();
+                Console.WriteLine(BinaryToDecimal(binary).ToString());
+            }
+            while (choice == '2')
+            {
+                Console.Write("\nEnter a decimal number: ");
+                long decimal_ = Convert.ToInt64(Console.ReadLine());
+                Console.WriteLine(DecimalToBinary(decimal_));
+            }
         }
 
-        public static int BinaryToDecimal(string binary)
+        public static string Reverse(string binary)
         {
-            int factor = 1;
-            int decimal_ = 0;
+            char[] array = binary.ToCharArray();
+            string reverse = string.Empty;
+            for (long i = array.Length - 1; i > -1; i--)
+            {
+                reverse += array[i];
+            }
+            return reverse;
+        }
+
+        public static long BinaryToDecimal(string binary)
+        {
+            long factor = 1;
+            long decimal_ = 0;
 
             for (int i = binary.Length - 1; i >= 0; i--)
             {
@@ -26,7 +51,7 @@ namespace Binary_converter
             return decimal_;
         }
 
-        public static string DecimalToBinary(int decimal_)
+        public static string DecimalToBinary(long decimal_)
         {
             string binary = string.Empty;
 
@@ -44,7 +69,7 @@ namespace Binary_converter
                 }
             }         
 
-            return binary.Reverse().ToString();
+            return Reverse(binary);
         }
     }
 }
