@@ -6,17 +6,17 @@ namespace Binary_converter
 {
     public class Converter
     {
-        public static string Reverse(string binary)
+        public unsafe static string Reverse(string binary)
         {
             char[] array = binary.ToCharArray();
             string reverse = string.Empty;
             for (int i = array.Length - 1; i > -1; i--)
             {
-                reverse += array[i];
+                reverse = String.Concat(reverse, array[i]);
             }
             return reverse;
         }
-
+    
         public static long BinaryToDecimal(string binary)
         {
             long factor = 1;
