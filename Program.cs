@@ -6,24 +6,36 @@ namespace Binary_converter
 {
     public class Program
     {
-        static void Main()
-        {
-            Console.Write("1 for Binary -> Decimal\n" +
-                          "2 for Decimal -> Binary\n");
+        public static bool Ask { get; set; }
 
-            char choice = Console.ReadKey().KeyChar;
-            
-            while (choice == '1')
+        public static void Main()
+        {
+            char choice = '-';
+            Ask = true;
+
+            while (true)
             {
-                Console.Write("\nEnter a binary number: ");
-                string binary = Console.ReadLine();
-                Console.WriteLine(Converter.BinaryToDecimal(binary).ToString());
-            }
-            while (choice != '1')
-            {
-                Console.Write("\nEnter a decimal number: ");
-                long decimal_ = Capturer.LongIn();
-                Console.WriteLine(Converter.DecimalToBinary(decimal_));
+                if (Ask)
+                {
+                    Console.Write("1 for Binary -> Decimal\n" +
+                                  "2 for Decimal -> Binary\n");
+
+                    choice = Console.ReadKey().KeyChar;
+                    Ask = false;
+                }
+
+                if (choice == '1')
+                {
+                    Console.Write("\nEnter a binary number: ");
+                    string binary = Capturer.LongIn().ToString();
+                    Console.WriteLine(Converter.BinaryToDecimal(binary).ToString());
+                }
+                if (choice != '1')
+                {
+                    Console.Write("\nEnter a decimal number: ");
+                    long decimal_ = Capturer.LongIn();
+                    Console.WriteLine(Converter.DecimalToBinary(decimal_));
+                }
             }
         }
     }

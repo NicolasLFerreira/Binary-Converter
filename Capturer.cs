@@ -12,6 +12,11 @@ namespace Binary_converter
             long output = 0;
             while (!long.TryParse(input, out output))
             {
+                if (input == "switch")
+                {
+                    Program.Ask = true;
+                    return 1;
+                }
                 Console.WriteLine("Enter an integer number: ");
                 input = Console.ReadLine();
             }

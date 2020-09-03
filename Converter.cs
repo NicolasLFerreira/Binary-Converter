@@ -6,7 +6,7 @@ namespace Binary_converter
 {
     public class Converter
     {
-        public unsafe static string Reverse(string binary)
+        public static string Reverse(string binary)
         {
             char[] array = binary.ToCharArray();
             string reverse = string.Empty;
