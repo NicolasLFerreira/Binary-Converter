@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Binary_converter
 {
-    class Converter
+    public class Converter
     {
         public static string Reverse(string binary)
         {
