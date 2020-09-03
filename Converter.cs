@@ -10,9 +10,10 @@ namespace Binary_converter
         {
             char[] array = binary.ToCharArray();
             string reverse = string.Empty;
+
             for (int i = array.Length - 1; i > -1; i--)
             {
-                reverse = String.Concat(reverse, array[i]);
+                reverse = string.Concat(reverse, array[i]);
             }
             return reverse;
         }
@@ -47,7 +48,6 @@ namespace Binary_converter
                     binary += "0";
                 }
             }
-
             return Reverse(binary);
         }
     }

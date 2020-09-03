@@ -13,6 +13,7 @@ namespace Binary_converter
             while (!long.TryParse(input, out output))
             {
                 Console.WriteLine("Enter an integer number: ");
+                input = Console.ReadLine();
             }
             return output;
         }
