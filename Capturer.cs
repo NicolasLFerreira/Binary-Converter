@@ -10,6 +10,7 @@ namespace Binary_converter
         {
             string input = Console.ReadLine();
             long output = 0;
+
             while (!long.TryParse(input, out output))
             {
                 if (input == "switch")

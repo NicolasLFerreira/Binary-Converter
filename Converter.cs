@@ -23,10 +23,15 @@ namespace Binary_converter
             long factor = 1;
             long decimal_ = 0;
 
+
+
             for (int i = binary.Length - 1; i >= 0; i--)
             {
-                if (binary[i].ToString() == "1") decimal_ += factor;
-                factor *= 2;
+                if (binary[i] == '1' || binary[i] == '0')
+                {
+                    if (binary[i].ToString() == "1") decimal_ += factor;
+                    factor *= 2;
+                }
             }
             return decimal_;
         }
