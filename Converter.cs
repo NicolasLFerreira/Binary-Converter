@@ -17,13 +17,11 @@ namespace Binary_converter
             }
             return reverse;
         }
-    
+
         public static long BinaryToDecimal(string binary)
         {
             long factor = 1;
             long decimal_ = 0;
-
-
 
             for (int i = binary.Length - 1; i >= 0; i--)
             {

@@ -10,27 +10,27 @@ namespace Binary_converter
 
         public static void Main()
         {
-            char choice = '-';
+            char choice = ' ';
             Ask = true;
 
             while (true)
             {
                 if (Ask)
                 {
-                    Console.Write("1 for Binary -> Decimal\n" +
-                                  "2 for Decimal -> Binary\n");
+                    Console.Write("Enter '0' for a 'binary -> decimal' conversion\n" +
+                                  "Enter '1' for a 'decimal -> binary' conversion\n");
 
-                    choice = Console.ReadKey().KeyChar;
+                    choice = Capturer.ChoiceIn('0', '1');
                     Ask = false;
                 }
 
-                if (choice == '1')
+                if (choice == '0')
                 {
                     Console.Write("\nEnter a binary number: ");
                     string binary = Capturer.LongIn().ToString();
                     Console.WriteLine(Converter.BinaryToDecimal(binary).ToString());
                 }
-                if (choice != '1')
+                if (choice == '1')
                 {
                     Console.Write("\nEnter a decimal number: ");
                     long decimal_ = Capturer.LongIn();
